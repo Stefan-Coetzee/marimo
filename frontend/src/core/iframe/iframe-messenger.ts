@@ -24,6 +24,12 @@
  *   { type: "marimo:code", requestId?, contents: string }
  *   { type: "marimo:ready" }
  *
+ * ## Pushed messages (marimo -> parent, continuous):
+ *
+ *   { type: "marimo:paste", cellId, cellName, textLength, timestamp }
+ *     Emitted when the user pastes text into a cell editor in embed mode.
+ *     See paste-reporter.ts for implementation.
+ *
  * ## Activation:
  *
  * The messenger activates when the `embed` query parameter is present

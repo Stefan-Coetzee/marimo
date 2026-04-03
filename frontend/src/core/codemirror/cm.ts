@@ -64,6 +64,7 @@ import { getCurrentLanguageAdapter } from "./language/commands";
 import { adaptiveLanguageConfiguration } from "./language/extension";
 import { dndBundle } from "./misc/dnd";
 import { pasteBundle } from "./misc/paste";
+import { embedPasteReporter } from "../iframe/paste-reporter";
 import { stringsAutoCloseBraces } from "./misc/string-braces";
 import { reactiveReferencesBundle } from "./reactive-references/extension";
 import { darkTheme } from "./theme/dark";
@@ -113,6 +114,7 @@ export const setupCodeMirror = (opts: CodeMirrorSetupOpts): Extension[] => {
     keymapBundle(keymapConfig, hotkeys),
     dndBundle(),
     pasteBundle(),
+    embedPasteReporter(),
     jupyterHelpExtension(),
     // Cell editing
     cellConfigExtension({
