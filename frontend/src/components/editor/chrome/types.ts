@@ -19,6 +19,7 @@ import {
   XCircleIcon,
 } from "lucide-react";
 import { getFeatureFlag } from "@/core/config/feature-flag";
+import { isHiddenInEmbedMode } from "@/core/iframe/embed-config";
 import type { Capabilities } from "@/core/kernel/messages";
 import { isWasm } from "@/core/wasm/utils";
 
@@ -209,6 +210,9 @@ export function isPanelHidden(
   capabilities: Capabilities,
 ): boolean {
   if (panel.hidden) {
+    return true;
+  }
+  if (isHiddenInEmbedMode(panel.type)) {
     return true;
   }
   if (panel.requiredCapability && !capabilities[panel.requiredCapability]) {

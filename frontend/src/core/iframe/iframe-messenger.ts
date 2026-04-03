@@ -39,6 +39,7 @@ import {
   notebookAtom,
 } from "@/core/cells/cells";
 import { isEmbedded } from "@/core/vscode/vscode-bindings";
+import { isEmbedMode } from "@/core/iframe/embed-config";
 
 /**
  * Shape of a cell in the iframe response. Kept minimal and JSON-safe.
@@ -76,14 +77,16 @@ export interface MarimoIframeCell {
  * Call this during app initialization (alongside maybeRegisterVSCodeBindings).
  * It is a no-op if the page is not embedded in an iframe or if the `embed`
  * query parameter is not present.
+ *
+ * Panel visibility is handled separately by embed-config.ts, which is
+ * imported at module-init time by types.ts (before React renders).
  */
 export function maybeRegisterIframeMessenger(): void {
   if (!isEmbedded) {
     return;
   }
 
-  const params = new URLSearchParams(window.location.search);
-  if (!params.has("embed")) {
+  if (!isEmbedMode) {
     return;
   }
 
