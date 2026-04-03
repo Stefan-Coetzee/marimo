@@ -44,6 +44,7 @@ import {
   isStaticNotebook,
 } from "./core/static/static-state";
 import { maybeRegisterVSCodeBindings } from "./core/vscode/vscode-bindings";
+import { maybeRegisterIframeMessenger } from "./core/iframe/iframe-messenger";
 import type { FileStore } from "./core/wasm/store";
 import { notebookFileStore } from "./core/wasm/store";
 import { WebSocketState } from "./core/websocket/types";
@@ -76,6 +77,7 @@ export function mount(options: unknown, el: Element): Error | undefined {
   try {
     // Init side-effects
     maybeRegisterVSCodeBindings();
+    maybeRegisterIframeMessenger();
     initializePlugins();
     cleanupAuthQueryParams();
 
