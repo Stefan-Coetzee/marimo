@@ -1,11 +1,14 @@
-verifyDepsBeforeRun: install
 packages:
   - frontend
   - packages/*
+
 minimumReleaseAge: 10080
+
 minimumReleaseAgeExclude:
-  - "@marimo-team/*"
-  # Renovate security update: yaml@2.8.3
+  - '@marimo-team/*'
   - yaml@2.8.3
-  # Renovate security update: path-to-regexp@8.4.0
   - path-to-regexp@8.4.0
+
+onlyBuiltDependencies: '@swc/core,esbuild,msw,es5-ext,spawn-sync'
+
+verifyDepsBeforeRun: install

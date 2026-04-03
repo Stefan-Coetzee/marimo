@@ -42,7 +42,8 @@ describe("iframe-messenger", () => {
 
     // Capture the message handler registered by maybeRegisterIframeMessenger
     addEventListenerSpy = vi.spyOn(window, "addEventListener");
-    addEventListenerSpy.mockImplementation((type: string, handler: unknown) => {
+    addEventListenerSpy.mockImplementation((...args: unknown[]) => {
+      const [type, handler] = args as [string, unknown];
       if (type === "message") {
         messageHandler = handler as (event: MessageEvent) => void;
       }
