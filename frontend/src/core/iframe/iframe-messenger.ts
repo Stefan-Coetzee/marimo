@@ -50,8 +50,8 @@ export interface MarimoIframeCell {
   name: string;
   /** Current cell source code */
   code: string;
-  /** Runtime status: "idle", "running", "queued", "disabled-transitively" */
-  status: string;
+  /** Runtime status: "idle", "running", "queued", "disabled-transitively", or null if unknown */
+  status: string | null;
   /** Whether the cell has been edited since last run */
   edited: boolean;
   /** Last execution time in milliseconds, if available */
@@ -110,7 +110,7 @@ function handleMessage(event: MessageEvent): void {
         id: String(cell.id),
         name: cell.name,
         code: cell.code,
-        status: cell.status,
+        status: cell.status ?? null,
         edited: cell.edited,
         runElapsedTimeMs: cell.runElapsedTimeMs,
         output: cell.output
