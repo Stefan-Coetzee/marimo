@@ -20,6 +20,10 @@ vi.mock("@/core/vscode/vscode-bindings", () => ({
   isEmbedded: true,
 }));
 
+vi.mock("@/core/iframe/embed-config", () => ({
+  isEmbedMode: true,
+}));
+
 import { maybeRegisterIframeMessenger } from "../iframe-messenger";
 import { store } from "@/core/state/jotai";
 import { flattenTopLevelNotebookCells } from "@/core/cells/cells";
