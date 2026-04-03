@@ -23,6 +23,10 @@ vi.mock("@/core/vscode/vscode-bindings", () => ({
   maybeRegisterVSCodeBindings: vi.fn(),
 }));
 
+vi.mock("@/core/iframe/iframe-messenger", () => ({
+  maybeRegisterIframeMessenger: vi.fn(),
+}));
+
 vi.mock("@/plugins/plugins", () => ({
   initializePlugins: vi.fn(),
 }));
