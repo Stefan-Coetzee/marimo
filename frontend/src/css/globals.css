@@ -40,9 +40,9 @@
 
   :root,
   .marimo {
-    --monospace-font: var(--marimo-monospace-font, "Fira Mono", monospace);
-    --text-font: var(--marimo-text-font, "PT Sans", sans-serif);
-    --heading-font: var(--marimo-heading-font, "Lora", serif);
+    --monospace-font: var(--marimo-monospace-font, "JetBrains Mono", "Fira Mono", monospace);
+    --text-font: var(--marimo-text-font, "Poppins", system-ui, sans-serif);
+    --heading-font: var(--marimo-heading-font, "Poppins", system-ui, sans-serif);
     --radius: 8px;
     /* stylelint-disable-next-line unit-allowed-list */
     --markdown-max-width: 80ch;
